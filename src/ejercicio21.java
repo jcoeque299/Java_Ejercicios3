@@ -10,22 +10,20 @@ public class ejercicio21 {
         Scanner userInput = new Scanner(System.in);
         System.out.println("Introduzca numero");
         int numero = parseInt(userInput.nextLine());
+        ArrayList<Integer> numerosImpares = new ArrayList<Integer>();
+        int sumaNumerosImpares = 0;
+        int maxNumeroPar = -1;
         while(numero >= 0) {
             numeros.add(numero);
+            if (numero %2== 0 && (numero > maxNumeroPar)) {
+                maxNumeroPar=numero;
+            }
+            else {
+                numerosImpares.add(numero);
+            }
             userInput = new Scanner(System.in);
             System.out.println("Introduzca numero");
             numero = parseInt(userInput.nextLine());
-        }
-        ArrayList<Integer> numerosImpares = new ArrayList<Integer>();
-        int sumaNumerosImpares = 0;
-        Integer maxNumeroPar = -1;
-        for (int numInList: numeros) {
-            if (numInList%2== 0 && (numInList > maxNumeroPar)) {
-                maxNumeroPar=numInList;
-            }
-            else {
-                numerosImpares.add(numInList);
-            }
         }
         for (int numeroImpar: numerosImpares) {
             sumaNumerosImpares += numeroImpar;
@@ -41,7 +39,7 @@ public class ejercicio21 {
             System.out.println("No se han introducido numeros pares");
         }
         else {
-            System.out.println("El numero par mas grande es" + maxNumeroPar);
+            System.out.println("El numero par mas grande es " + maxNumeroPar);
         }
     }
 }
